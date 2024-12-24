@@ -1,0 +1,235 @@
+
+body {
+    background-color: #121212;
+    color: white;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#chat {
+    background-color: #1e1e1e;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-message .avatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-message .message-box {
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.chat-message.user .avatar {
+    background-color: #0d6efd;
+}
+
+.chat-message.user .message-box {
+    background-color: #004d40;
+}
+
+.input-group {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+    background-color: #333;
+    padding: 10px;
+}
+
+.btn-send {
+    border-radius: 50%;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+.message-time {
+    font-size: 0.8em;
+    color: #ccc;
+    margin-top: 5px;
+}
+
+.emoji-picker {
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    z-index: 100;
+}
+.chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.chat-message .avatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.chat-message .message-box {
+    padding: 10px;
+    border-radius: 8px;
+    max-width: 70%;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-message.user {
+    justify-content: flex-end;
+}
+
+.chat-message.user .avatar {
+    background-color: #0d6efd;
+    order: 2; /* قرار دادن آواتار سمت راست */
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.chat-message.user .message-box {
+    background-color: #004d40;
+    color: white;
+    order: 1; /* پیام در سمت راست */
+}
+
+.chat-message.other {
+    justify-content: flex-start;
+}
+
+.chat-message.other .avatar {
+    background-color: #6c757d;
+    order: 1; /* قرار دادن آواتار سمت چپ */
+    margin-right: 10px;
+    margin-left: 0;
+}
+
+.chat-message.other .message-box {
+    background-color: #333;
+    color: white;
+    order: 2; /* پیام در سمت چپ */
+}
+.chat-message.user {
+    justify-content: flex-end; /* پیام‌های کاربر در سمت راست */
+}
+
+.chat-message.user .message-box {
+    background-color: #004d40;
+    color: white;
+    text-align: right;
+}
+
+.chat-message.other {
+    justify-content: flex-start; /* پیام‌های دیگران در سمت چپ */
+}
+
+.chat-message.other .message-box {
+    background-color: #333;
+    color: white;
+    text-align: left;
+}
+#emoji-picker {
+    position: absolute;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+}
+
+#emoji-picker button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+}
+.message {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.message button {
+    margin-left: 10px;
+}
+.message {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.message:hover {
+    background-color: #f8f9fa;
+}
+
+.message-options {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 10;
+}
+
+.message-options button {
+    margin: 0;
+}
+.message {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.message:hover {
+    background-color: #f8f9fa;
+}
+
+.message-options {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 10;
+}
+
+.message-options button {
+    margin: 0;
+}

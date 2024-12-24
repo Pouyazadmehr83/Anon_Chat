@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحه ورود چت</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e7f7e7; /* پس‌زمینه سبز روشن */
+            color: #495057;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+        .btn-custom {
+            background-color: #28a745; /* سبز برای دکمه */
+            color: white;
+            width: 100%;
+        }
+        .btn-custom:hover {
+            background-color: #218838;
+        }
+        .link-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .alert-custom {
+            background-color: #28a745;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">anonymously chat</h1>
+        <p class="text-center">make room for start</p>
+
+        <!-- دکمه ساخت اتاق جدید -->
+        <button class="btn btn-custom" onclick="createRoom()">make room</button>
+
+        <!-- نمایش لینک اتاق جدید -->
+        <div id="roomLink" class="link-container" style="display: none;">
+            <div class="alert alert-custom" role="alert">
+               created room
+            </div>
+            <p>your room Link:</p>
+            <input type="text" id="roomUrl" class="form-control" readonly>
+            <button class="btn btn-primary" onclick="copyLink()"> copy link  </button>
+            <button class="btn btn-secondary" onclick="openRoom()">open link </button>
+        </div>
+    </div>
+
+    <!-- Socket.IO -->
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        function createRoom() {
+            fetch('/create_room', {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                const roomUrl = window.location.origin + '/chat/' + data.room_id;
+                document.getElementById('roomUrl').value = roomUrl;
+                document.getElementById('roomLink').style.display = 'block'; // نمایش لینک اتاق جدید
+            });
+        }
+
+        function copyLink() {
+            const roomUrl = document.getElementById('roomUrl');
+            roomUrl.select();
+            document.execCommand('copy');
+            alert(' copy link ');
+        }
+
+        function openRoom() {
+            const roomUrl = document.getElementById('roomUrl').value;
+            window.open(roomUrl, '_blank'); // باز کردن اتاق در تب جدید
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
